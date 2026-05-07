@@ -1,0 +1,263 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Helvetica', Arial, sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #2b8080;
+    color: white;
+    padding: 15px 0;
+}
+
+.nav-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.nav-links a {
+    color: #e0e0e0;
+    text-decoration: none;
+    margin-right: 20px;
+    font-size: 13px;
+}
+
+.nav-links a.active {
+    color: white;
+    border-bottom: 2px solid white;
+    padding-bottom: 5px;
+}
+
+.user-menu {
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+}
+
+.avatar-placeholder {
+    width: 30px;
+    height: 30px;
+    background-color: #ccc;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 60px 0;
+}
+
+.hero-text {
+    flex: 1;
+}
+
+.hero-text h1 {
+    font-size: 32px;
+    color: #1a1a1a;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.btn-primary {
+    background-color: #1a6363;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.hero-placeholder {
+    flex: 1;
+    height: 280px;
+    background-color: #e0e0e0;
+    border-radius: 20px;
+}
+
+/* Sections Common */
+.section-group {
+    margin-bottom: 50px;
+}
+
+.section-title {
+    color: #2b8080;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.view-more {
+    text-align: right;
+    margin-top: 15px;
+}
+
+.view-more a {
+    color: #2b8080;
+    text-decoration: underline;
+    font-style: italic;
+    font-size: 14px;
+}
+
+/* Grid Layouts */
+.grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+/* Agenda Boxes */
+.box-gradient {
+    height: 140px;
+    border-radius: 15px;
+}
+
+.box-1 { background: linear-gradient(to bottom right, #7a7e8a, #a0a4b0); }
+.box-2 { background: linear-gradient(to bottom right, #50c9c3, #96deda); }
+.box-3 { background: linear-gradient(to bottom right, #666, #999); }
+.box-4 { background: linear-gradient(to bottom right, #800, #400); }
+
+/* Event Cards */
+.card {
+    border: 1px solid #eee;
+    border-radius: 20px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    padding: 15px;
+}
+
+.card-img {
+    height: 180px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+
+.img-gray { background-color: #6d717f; }
+.img-teal { background-color: #4db6ac; }
+
+.card-content h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.author {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.author-img {
+    width: 25px;
+    height: 25px;
+    background: #ddd;
+    border-radius: 50%;
+}
+
+.author span {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.card-content p {
+    font-size: 12px;
+    color: #777;
+    margin-bottom: 20px;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    border-top: 1px solid #f0f0f0;
+    padding-top: 10px;
+}
+
+.card-footer a {
+    color: #333;
+}
+
+/* Footer */
+.footer {
+    background-color: #2b8080;
+    color: white;
+    padding: 60px 0 20px;
+    margin-top: 50px;
+}
+
+.footer-flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-brand {
+    max-width: 400px;
+}
+
+.footer-logo {
+    font-size: 32px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.footer-sub {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.footer-brand p {
+    font-size: 11px;
+    opacity: 0.8;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 11px;
+    margin-top: 40px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 20px;
+}
