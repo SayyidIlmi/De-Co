@@ -3,176 +3,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>De-Co | Platform Manajemen Digital Mahasiswa</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>De-Co | Dewan Connect Landing Page</title>
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="{{ asset('css/landingpage.css') }}">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        .hero-bg { background-color: #1a8282; border-radius: 0 0 50% 50% / 0 0 15% 15%; }
-        .feature-card { transition: transform 0.3s; }
-        .feature-card:hover { transform: translateY(-10px); }
-    </style>
 </head>
-<body class="bg-gray-50 font-sans">
+<body>
 
-    <header class="hero-bg text-white pb-24">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-2xl font-bold italic">De-Co</div>
-            <div class="hidden md:flex space-x-8 text-sm">
-                <a href="#" class="hover:text-gray-200">Home</a>
-                <a href="#" class="hover:text-gray-200">About</a>
-                <a href="#" class="hover:text-gray-200">Service</a>
-                <a href="#" class="hover:text-gray-200">Blog</a>
-                <a href="#" class="hover:text-gray-200">Contact</a>
-            </div>
-            <div class="space-x-4">
-                <a href="/login"><button class="px-4 py-2 border border-white rounded-full text-sm">Login</button></a>
-                <button class="px-4 py-2 bg-white text-teal-700 rounded-full text-sm font-semibold">Sign Up</button>
+    <!-- 1. HERO SECTION -->
+
+    <header class="hero-section">
+            <div class="hero-wave">
+        <img src="{{ asset('images/wave-bottom.png') }}" alt="Wave Background">
+    </div> 
+        <nav class="navbar">
+            <div class="container nav-container">
+                <div class="logo">De-Co</div>
+                <ul class="nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Courses</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">About Us</a></li>
+                </ul>
+                <div class="auth-buttons">
+                    <a href="/login"><button class="btn-login">Login</button></a>
+                    <button class="btn-signup">Sign Up</button>
+                </div>
             </div>
         </nav>
 
-        <div class="container mx-auto px-6 mt-16 flex flex-col md:flex-row items-center">
-            <div class="md:w-1/2">
-                <h1 class="text-4xl md:text-5xl font-bold leading-tight">
-                    DE-CO Platform Manajemen Digital Dewan Perwakilan Mahasiswa & Pusat Agenda Kampus
+        <div class="container hero-wrapper">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="highlight">DE-CO</span> Platform Manajemen Digital Dewan Perwakilan Mahasiswa & Pusat Agenda Kampus
                 </h1>
-                <div class="mt-8 flex space-x-4">
-                    <button class="bg-white text-teal-700 px-6 py-3 rounded-full font-bold shadow-lg">Daftar Sekarang</button>
-                    <button class="flex items-center space-x-2 text-sm">
-                        <span class="p-2 bg-white/20 rounded-full"><i class="fas fa-play"></i></span>
-                        <span>Lihat Video Profil</span>
+                <div class="hero-actions">
+                    <button class="btn-join">Join for free</button>
+                    <button class="btn-watch">
+                        <span class="play-icon"><i class="fas fa-play"></i></span>
+                        Watch how it works
                     </button>
                 </div>
             </div>
-            <div class="md:w-1/2 mt-12 md:mt-0 relative">
-                <div class="bg-white/10 p-4 rounded-xl backdrop-blur-sm border border-white/20">
-                    <img src="https://via.placeholder.com/600x400" alt="Dashboard Preview" class="rounded-lg shadow-2xl">
+
+            <div class="floating-elements">
+                <div class="f-card card-top">
+                    <div class="f-icon bg-blue"><i class="far fa-calendar"></i></div>
+                    <div class="f-text"><strong>250k</strong><span> Assisted Student</span></div>
+                </div>
+                <div class="f-card card-mid">
+                    <div class="f-icon bg-orange"><i class="far fa-envelope"></i></div>
+                    <div class="f-text"><strong>Congratulations </strong><span> Your admission completed</span></div>
+                </div>
+                <div class="f-card card-bottom">
+                    <div class="user-info">
+                        <div class="user-avatar"></div>
+                        <div><strong>User Experience Class</strong><span> Today at 12.00 PM</span></div>
+                    </div>
+                    <button class="btn-join-now">Join Now</button>
                 </div>
             </div>
         </div>
+ 
     </header>
 
-    <section class="container mx-auto px-6 -mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
-        @php
-            $benefits = [
-                ['icon' => 'fa-users', 'title' => 'Pengelolaan Agenda', 'desc' => 'Atur jadwal kegiatan organisasi secara terpusat.'],
-                ['icon' => 'fa-file-alt', 'title' => 'Verifikasi Berkas & Transparansi', 'desc' => 'Pantau status dokumen dan transparansi anggaran.'],
-                ['icon' => 'fa-comments', 'title' => 'Pusat Aspirasi', 'desc' => 'Wadah mahasiswa untuk menyuarakan aspirasi dengan mudah.']
-            ];
-        @endphp
-
-        @foreach($benefits as $item)
-        <div class="bg-white p-8 rounded-2xl shadow-xl text-center feature-card">
-            <div class="w-16 h-16 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                <i class="fas {{ $item['icon'] }} text-2xl"></i>
-            </div>
-            <h3 class="text-xl font-bold mb-4 text-teal-900">{{ $item['title'] }}</h3>
-            <p class="text-gray-500 text-sm leading-relaxed">{{ $item['desc'] }}</p>
-        </div>
-        @endforeach
-    </section>
-
-    <section class="container mx-auto px-6 py-24 space-y-32">
-        <div class="flex flex-col md:flex-row items-center gap-12">
-            <div class="md:w-1/2">
-                <img src="https://via.placeholder.com/500x350" class="rounded-3xl shadow-lg" alt="Interface">
-            </div>
-            <div class="md:w-1/2">
-                <h2 class="text-3xl font-bold text-teal-900 mb-6 leading-tight">A user interface designed for the classroom</h2>
-                <ul class="space-y-4">
-                    <li class="flex items-start gap-3">
-                        <i class="fas fa-check-circle text-teal-500 mt-1"></i>
-                        <p class="text-gray-600">Fitur navigasi yang intuitif untuk kemudahan akses berkas mahasiswa.</p>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <i class="fas fa-check-circle text-teal-500 mt-1"></i>
-                        <p class="text-gray-600">Integrasi langsung dengan kalender akademik kampus.</p>
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="flex flex-col md:flex-row-reverse items-center gap-12">
-            <div class="md:w-1/2">
-                <img src="https://via.placeholder.com/500x350" class="rounded-3xl shadow-lg" alt="Assessment">
-            </div>
-            <div class="md:w-1/2 text-right md:text-left">
-                <h2 class="text-3xl font-bold text-teal-900 mb-6">Assessments, Quizzes, Tests</h2>
-                <p class="text-gray-600 mb-6">Sistem evaluasi kinerja organisasi yang objektif dan terdokumentasi dengan baik dalam satu platform.</p>
-                <button class="text-teal-600 font-bold underline">Pelajari Selengkapnya</button>
-            </div>
-        </div>
-    </section>
-
-    <section class="bg-gray-100 py-20">
-        <div class="container mx-auto px-6">
-            <div class="flex justify-between items-end mb-12">
-                <div>
-                    <h2 class="text-3xl font-bold text-teal-900">Latest News and Resources</h2>
-                    <p class="text-gray-500 mt-2">Update terbaru seputar dunia kampus dan organisasi.</p>
-                </div>
-                <button class="text-teal-600 font-bold">Lihat Semua</button>
-            </div>
+    <!-- 2. ALL-IN-ONE SOFTWARE SECTION -->
+    <section class="section-padding">
+        <div class="container">
+            <p class="section-label">All-In-One Cloud Software</p>
+            <h2 class="section-h2">Satu platform untuk berbagai kebutuhan digital mahasiswa.</h2>
             
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
-                <div class="group">
-                    <img src="https://via.placeholder.com/800x450" class="rounded-2xl mb-6 w-full object-cover h-64 shadow-md group-hover:shadow-xl transition-all" alt="News">
-                    <span class="px-3 py-1 bg-teal-100 text-teal-600 rounded-full text-xs font-bold">NEWS</span>
-                    <h3 class="text-2xl font-bold mt-4 mb-2 group-hover:text-teal-700">Inovasi Digitalisasi Organisasi Mahasiswa 2026</h3>
-                    <p class="text-gray-500">Meningkatkan efisiensi kerja DPM melalui sistem satu pintu yang terintegrasi...</p>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="angular-box"></div>
+                    <h3>Online Billing & Invoicing</h3>
+                    <p>Kelola administrasi keuangan organisasi dengan lebih transparan dan otomatis.</p>
                 </div>
-                
-                <div class="space-y-8">
-                    @for($i = 0; $i < 3; $i++)
-                    <div class="flex gap-4 group">
-                        <img src="https://via.placeholder.com/150x100" class="rounded-xl object-cover" alt="Thumb">
-                        <div>
-                            <span class="text-xs font-bold text-teal-600">TIPS & TRICK</span>
-                            <h4 class="font-bold group-hover:text-teal-700">Cara mengelola agenda besar dengan efektif menggunakan De-Co</h4>
-                        </div>
-                    </div>
-                    @endfor
+                <div class="feature-card">
+                    <div class="angular-box" style="--color-1: #4db6ac; --color-2: #80cbc4;"></div>
+                    <h3>Scheduling & Attendance</h3>
+                    <p>Sistem penjadwalan rapat dan absensi digital yang terintegrasi langsung.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="angular-box" style="--color-1: #1a237e; --color-2: #7986cb;"></div>
+                    <h3>Customer Tracking</h3>
+                    <p>Pantau keterlibatan mahasiswa dalam setiap agenda dan program kerja.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="bg-teal-900 text-white pt-16 pb-8">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between mb-12">
-                <div class="mb-8 md:mb-0">
-                    <div class="text-3xl font-bold italic mb-4">De-Co</div>
-                    <p class="text-teal-200/60 max-w-xs text-sm leading-relaxed">
-                        Platform Manajemen Digital untuk masa depan organisasi kampus yang lebih transparan dan efisien.
-                    </p>
-                </div>
-                <div class="grid grid-cols-2 md:grid-cols-3 gap-8 text-sm">
+    <!-- 3. ABOUT DE-CO SECTION (Side by Side) -->
+    <section class="container section-padding">
+        <div class="content-split">
+            <div class="content-text">
+                <h2 class="section-h2">What is <span style="color: var(--primary-teal);">De-Co?</span></h2>
+                <p>De-Co adalah solusi integrasi digital yang dirancang khusus untuk mempermudah tata kelola Dewan Perwakilan Mahasiswa dalam mengelola agenda, rapat, dan informasi publik.</p>
+                <a href="#" style="color: var(--primary-teal); font-weight: 600; text-decoration: underline;">Learn more</a>
+            </div>
+            <div class="content-img">
+                <div class="angular-box" style="height: 300px;"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. LATEST NEWS SECTION -->
+    <section class="container section-padding">
+        <h2 class="section-h2" style="text-align: left;">Latest News and Resources</h2>
+        <div class="news-container">
+            <div class="news-main">
+                <div class="angular-box" style="height: 350px; margin-bottom: 20px;"></div>
+                <h3>Cara Mengoptimalkan Manajemen Rapat Organisasi di Era Digital</h3>
+                <p>Pelajari langkah-langkah praktis dalam mengelola administrasi legislatif agar lebih efisien.</p>
+                <a href="#">Read more</a>
+            </div>
+            <div class="news-list">
+                <div class="news-item">
+                    <div class="angular-box" style="width: 120px; height: 80px;"></div>
                     <div>
-                        <h5 class="font-bold mb-4">Layanan</h5>
-                        <ul class="space-y-2 text-teal-200/60">
-                            <li><a href="#">Manajemen Agenda</a></li>
-                            <li><a href="#">E-Aspirasi</a></li>
-                            <li><a href="#">Arsip Digital</a></li>
-                        </ul>
+                        <h4 style="font-size: 14px;">Fitur Baru: Integrasi Kalender Akademik</h4>
+                        <p style="font-size: 12px; opacity: 0.7;">Update terbaru untuk memudahkan penjadwalan.</p>
                     </div>
+                </div>
+                <div class="news-item">
+                    <div class="angular-box" style="width: 120px; height: 80px;"></div>
                     <div>
-                        <h5 class="font-bold mb-4">Perusahaan</h5>
-                        <ul class="space-y-2 text-teal-200/60">
-                            <li><a href="#">Tentang Kami</a></li>
-                            <li><a href="#">Kontak</a></li>
-                            <li><a href="#">Karir</a></li>
-                        </ul>
+                        <h4 style="font-size: 14px;">Laporan Transparansi Dana DPM 2026</h4>
+                        <p style="font-size: 12px; opacity: 0.7;">Akses publik untuk keterbukaan informasi.</p>
                     </div>
                 </div>
             </div>
-            <hr class="border-teal-800 mb-8">
-            <div class="flex flex-col md:flex-row justify-between items-center text-xs text-teal-200/40">
-                <p>&copy; 2026 De-Co Platform. All rights reserved.</p>
-                <div class="flex space-x-6 mt-4 md:mt-0">
-                    <i class="fab fa-facebook hover:text-white cursor-pointer"></i>
-                    <i class="fab fa-instagram hover:text-white cursor-pointer"></i>
-                    <i class="fab fa-twitter hover:text-white cursor-pointer"></i>
-                    <i class="fab fa-linkedin hover:text-white cursor-pointer"></i>
+        </div>
+    </section>
+
+    <!-- 5. FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-brand">
+                    <div class="footer-logo">De-Co</div>
+                    <p class="footer-desc">Menghubungkan efisiensi manajemen legislatif dengan keterbukaan informasi publik untuk mahasiswa Indonesia.</p>
+                    <div class="social-links">
+                        <i class="fab fa-facebook"></i>
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-linkedin"></i>
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
                 </div>
+                <div class="footer-links">
+                    <!-- Tambahkan link menu footer jika perlu -->
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 De-Co Technologies Inc. All Rights Reserved.</p>
             </div>
         </div>
     </footer>

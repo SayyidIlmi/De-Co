@@ -14,13 +14,13 @@ class AuthControllers extends Controller
     {
         // 1. Validasi input
         $credentials = $request->validate([
-            'email' => ['required', 'email'],
+            'username' => ['required'],
             'password' => ['required'],
         ]);
 
-        // 2. Cari user berdasarkan email dan password teks biasa (Plain Text)
-        $user = \App\Models\User::where('email', $credentials['email'])
-            ->where('password', $credentials['password'])
+        // 2. Cari user berdasarkan username dan password teks biasa (Plain Text)
+        $user = \App\Models\User::where('username', $request->username)
+            ->where('password', $request->password)
             ->first();
 
         if ($user) {
@@ -33,7 +33,7 @@ class AuthControllers extends Controller
 
         // 3. Jika gagal
         return back()->withErrors([
-            'email' => 'Email atau password salah (Plain Text Mode).',
-        ])->onlyInput('email');
+            'username' => 'username atau password salah.',
+        ])->onlyInput('username');
     }
 }
