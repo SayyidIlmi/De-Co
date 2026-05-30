@@ -42,7 +42,7 @@
 
                     <div class="toggle-auth">
                         <button class="btn-toggle active">Login</button>
-                        <button class="btn-toggle">Register</button>
+                        <button class="btn-toggle" onclick="window.location.href='/register'">Register</button>
                     </div>
 
                     <p class="description">
