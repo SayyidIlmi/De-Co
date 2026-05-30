@@ -9,8 +9,7 @@ class EventTimeline extends Model
 
     protected $fillable = [
         'event_id',
-        'jam_mulai',
-        'jam_selesai',
+        'tanggal_event',
         'agenda',
     ];
 

@@ -17,24 +17,13 @@ class Event extends Model
     protected $fillable = [
         'judul',
         'deskripsi',
-        'tanggal',
-        'token_presensi', // Kode rahasia yang di-update dinamis oleh Koordinator
+        'file_path',
+        'location',
+        'penanggung_jawab',
+        'token_presensi', 
     ];
 
-    /**
-     * Mengatur tipe data kolom secara otomatis (Casting).
-     * Memastikan string tanggal dari DB dikonversi menjadi objek Carbon/Datetime PHP.
-     */
-    protected $casts = [
-        'tanggal' => 'datetime',
-    ];
 
-    /**
-     * RELASI ORM: Many-to-Many ke Model User (Melalui Tabel Pivot 'participants')
-     * 
-     * Menghubungkan Event dengan Anggota yang diundang oleh Koordinator.
-     * Method ini mewakili fungsionalitas utama sistem undangan rapat.
-     */
     public function participants()
     {
         return $this->belongsToMany(User::class, 'participants', 'event_id', 'user_id')
@@ -42,17 +31,21 @@ class Event extends Model
                     ->withTimestamps();
     }
 
-    /**
-     * RELASI ORM: One-to-Many ke Model EventTimeline
-     * 
-     * Menghubungkan Event dengan detail susunan acara/agenda rapat per jam.
-     * Jika Event dihapus, data timeline terkait akan kehilangan induknya (Foreign Key constraint).
-     */
+
     public function timelines()
     {
         return $this->hasMany(EventTimeline::class, 'event_id', 'id');
     }
 
+    public function materials()
+{
+    return $this->hasMany(EventMaterial::class, 'event_id', 'id');
+}
+
+public function documentations()
+{
+    return $this->hasMany(EventDocumentation::class, 'event_id', 'id');
+}
     /**
      * HELPER METHOD / LOCAL SCOPE: Memeriksa validitas token input
      * 
@@ -66,4 +59,7 @@ class Event extends Model
     {
         return $this->token_presensi === $inputToken;
     }
+public function pendaftar() {
+    return $this->belongsToMany(User::class, 'event_user', 'event_id', 'user_id')->withTimestamps();
+}
 }
