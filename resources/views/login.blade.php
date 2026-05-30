@@ -56,8 +56,11 @@
                         <label for="username">username</label>
                         <input value="{{ old('username') }}" type="username" id="username" name="username"
                             placeholder="Enter your username" required>
+                        @error('username')
+                            <span
+                                style="color: #ff4d4d; font-size: 12px; margin-top: 5px; display: block;">{{ $message }}</span>
+                        @enderror
                     </div>
-
                     <div class="form-group">
                         <label for="password">Password</label>
                         <div class="input-with-icon">
@@ -67,9 +70,16 @@
                                 <i id="toggleIcon" class="fa-regular fa-eye-slash icon-toggle"></i>
                             </a>
                         </div>
+                        @error('password')
+                            <span
+                                style="color: #ff4d4d; font-size: 12px; margin-top: 5px; display: block;">{{ $message }}</span>
+                        @enderror
                     </div>
-                    @error('username')
-                        <span style="color: red; font-size: 11px; margin-left: 15px;">{{ $message }}</span>
+                    @error('login_error')
+                        <div
+                            style="background-color: #ffe6e6; color: #ff4d4d; padding: 10px; border-radius: 5px; font-size: 13px; margin-bottom: 15px; border: 1px solid #ffcccc;">
+                            <i class="fa-solid fa-triangle-exclamation"></i> {{ $message }}
+                        </div>
                     @enderror
                     <div class="form-footer">
                         <button type="submit" class="btn-login">Login</button>
