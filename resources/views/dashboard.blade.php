@@ -9,22 +9,22 @@
 </head>
 <body>
 
-    <header class="navbar">
+
+    <nav class="navbar">
         <div class="container nav-flex">
-            <div class="logo">De-Co</div>
-            <nav class="nav-links">
-                <a href="#" class="active">Dashboard</a>
-                <a href="#">Manajemen Rapat</a>
-                <a href="#">Katalog Event</a>
-                <a href="#">Laporan</a>
-                <a href="#">Profil DPM</a>
-            </nav>
+            <a href="{{ route('dashboard') }}" class="logo" style="text-decoration: none;">De-Co</a>
+            <div class="nav-links">
+                <a href="/dashboard" class="active" >Dashboard</a>
+                <a href="/rapat">Manajemen Rapat</a>
+                <a href="/event">Katalog Event</a>
+            </div>
             <div class="user-menu">
-                <div class="avatar-placeholder"></div>
-                <span>Your name <i class="fa fa-chevron-down"></i></span>
+                <i class="fa-regular fa-user"></i>
+                <span>Your name</span>
+                <i class="fa-solid fa-chevron-down"></i>
             </div>
         </div>
-    </header>
+    </nav>
 
     <main class="container">
         <section class="hero">
@@ -39,10 +39,10 @@
         <section class="section-group">
             <h2 class="section-title">Agenda Rapat</h2>
             <div class="grid-4">
-                <div class="box-gradient box-1"></div>
-                <div class="box-gradient box-2"></div>
-                <div class="box-gradient box-3"></div>
-                <div class="box-gradient box-4"></div>
+                <div class="meeting-img-placeholder bg-gradient-1"></div>
+                <div class="meeting-img-placeholder bg-gradient-2"></div>
+                <div class="meeting-img-placeholder bg-gradient-3"></div>
+                <div class="meeting-img-placeholder bg-gradient-4"></div>
             </div>
             <div class="view-more">
                 <a href="#">Selengkapnya ></a>
@@ -94,20 +94,23 @@
             <div class="footer-brand">
                 <div class="footer-logo">De-Co</div>
                 <div class="footer-sub">Dewan Connect</div>
-                <p>platform integrasi digital yang dirancang untuk memperkuat tata kelola Dewan Perwakilan Mahasiswa. Kami menghubungkan efisiensi manajemen legislatif dengan keterbukaan informasi publik.</p>
+                <p>platform integrasi digital yang dirancang untuk memperkuat tata kelola Dewan Perwakilan Mahasiswa.
+                    Kami menghubungkan efisiensi manajemen legislatif dengan keterbukaan informasi publik, menciptakan
+                    satu ruang terpusat untuk administrasi rapat yang rapi dan katalog kegiatan organisasi yang
+                    informatif.</p>
             </div>
             <div class="footer-contact">
-                <h4>Contact us</h4>
+                <div class="contact-title">Contact us</div>
                 <div class="social-icons">
-                    <i class="fab fa-facebook"></i>
-                    <i class="fab fa-instagram"></i>
-                    <i class="fab fa-linkedin"></i>
-                    <i class="fab fa-whatsapp"></i>
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2026 De-Co Technologies Inc.</p>
+            &copy; 2026 De-Co Technologies inc.
         </div>
     </footer>
 

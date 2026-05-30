@@ -298,3 +298,172 @@ position: relative;
     .hero-title { font-size: 36px; }
     .floating-elements { display: none; } /* Sembunyikan card melayang di mobile agar rapi */
 }
+
+/* =========================================
+   A. DEFINISI ANIMASI (Keyframes)
+   ========================================= */
+
+/* Animasi membalbal / mengambang halus untuk Floating Cards */
+@keyframes floatAnimation {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Animasi muncul dari bawah ke atas */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animasi muncul melebar untuk text highlight */
+@keyframes revealText {
+    from { opacity: 0; transform: translateX(-10px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* Animasi denyut halus untuk tombol play video */
+@keyframes pulseGlow {
+    0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
+    70% { box-shadow: 0 0 0 15px rgba(255, 255, 255, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+}
+
+
+/* =========================================
+   B. IMPLEMENTASI ANIMASI PADA ELEMEN
+   ========================================= */
+
+/* 1. Animasi Loading Awal (Hero Section) */
+.hero-content {
+    animation: fadeInUp 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.hero-title .highlight {
+    opacity: 0;
+    display: inline-block;
+    animation: revealText 0.8s 0.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    color: var(--light-teal); /* Memberi sedikit sentuhan warna kontras */
+}
+
+/* 2. Efek Mengambang Mandiri pada Setiap Floating Card (Berbeda ritme agar natural) */
+.card-top { 
+    animation: floatAnimation 5s ease-in-out infinite; 
+}
+.card-mid { 
+    animation: floatAnimation 6s ease-in-out infinite 0.5s; /* delay 0.5s */
+}
+.card-bottom { 
+    animation: floatAnimation 5.5s ease-in-out infinite 1s; /* delay 1s */
+}
+
+
+/* =========================================
+   C. EFEK INTERAKSI HOVER (Micro-interactions)
+   ========================================= */
+
+/* Efek Hover Menu Navigasi */
+.nav-links a {
+    position: relative;
+    transition: color 0.3s ease;
+}
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: white;
+    transition: width 0.3s ease;
+}
+.nav-links a:hover {
+    color: var(--light-teal);
+}
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Efek Hover Tombol-Tombol Utama */
+.btn-login, .btn-signup, .btn-join {
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease, background 0.3s ease, color 0.3s ease;
+}
+
+.btn-login:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    background-color: #f3f4f6;
+}
+
+.btn-signup:hover {
+    transform: scale(1.05);
+    background: rgba(255, 255, 255, 0.35);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.btn-join:hover {
+    transform: scale(1.05);
+    background: rgba(255, 255, 255, 1);
+    color: var(--primary-teal);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Efek Denyut & Hover pada Tombol Watch Video */
+.btn-watch {
+    transition: transform 0.3s ease;
+}
+.btn-watch:hover {
+    transform: translateX(5px); /* Sedikit bergeser ke kanan */
+}
+.play-icon {
+    animation: pulseGlow 2s infinite;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+.btn-watch:hover .play-icon {
+    transform: scale(1.1);
+    background-color: var(--light-teal);
+    color: white;
+}
+
+/* Peningkatan Hover Feature Cards (Diperhalus dari bawaan) */
+.feature-card {
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
+}
+.feature-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 40px rgba(19, 106, 106, 0.12); /* shadow berwarna teal tipis */
+}
+
+/* Efek Zoom Gambar pada Content & News Grid saat di-hover */
+.content-img, .news-main, .news-item img {
+    overflow: hidden; /* Memastikan gambar tidak keluar border saat membesar */
+}
+.content-img img, .news-main img, .news-item img {
+    transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.content-split:hover .content-img img,
+.news-main:hover img,
+.news-item:hover img {
+    transform: scale(1.04);
+}
+
+/* Efek Hover pada List Berita Sampingan */
+.news-item {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+.news-item:hover {
+    transform: translateX(8px); /* Efek bergeser masuk */
+}
+.news-item h3 {
+    transition: color 0.3s ease;
+}
+.news-item:hover h3 {
+    color: var(--primary-teal);
+}
