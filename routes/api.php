@@ -5,16 +5,6 @@ use App\Http\Controllers\AuthControllers;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\RapatController;
 
-Route::get('/jalankan-migrasi', function () {
-    try {
-        // Ini pengganti ketikan "php artisan migrate" di terminal
-        Artisan::call('migrate:fresh', ['--force' => true]);
-        return 'Tabel Rapat & Event De-Co Berhasil Dibuat di Neon! 🚀';
-    } catch (\Exception $e) {
-        return 'Gagal migrasi: ' . $e->getMessage();
-    }
-});
-
 // [PUBLIC RESTRICTED] Route untuk mendapatkan token login fungsionaris
 Route::post('/login', [AuthControllers::class, 'apiLogin']);
 
