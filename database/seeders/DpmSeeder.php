@@ -83,11 +83,11 @@ class DpmSeeder extends Seeder
         $event1->timelines()->createMany([
             [
                 'tanggal_event' => now()->addDays(2)->format('Y-m-d'), // Day 1
-                'agenda' => 'Day 1: Pembukaan oleh Koordinator & Pemaparan Kendala Internal',
+                'agenda' => 'Day 1',
             ],
             [
                 'tanggal_event' => now()->addDays(3)->format('Y-m-d'), // Day 2
-                'agenda' => 'Day 2: Sinkronisasi Solusi Antar Divisi & Perumusan Berita Acara',
+                'agenda' => 'Day 2',
             ],
         ]);
 
@@ -126,19 +126,19 @@ class DpmSeeder extends Seeder
         $event2->timelines()->createMany([
             [
                 'tanggal_event' => now()->addDays(5)->format('Y-m-d'), // Day 1
-                'agenda' => 'Day 1: Seremonial Pembukaan & Sambutan Pihak Rektorat',
+                'agenda' => 'Day 1',
             ],
             [
                 'tanggal_event' => now()->addDays(6)->format('Y-m-d'), // Day 2
-                'agenda' => 'Day 2: Sidang Pleno I (Pembacaan Berkas LPJ Utama oleh Kabinet)',
+                'agenda' => 'Day 2',
             ],
             [
                 'tanggal_event' => now()->addDays(7)->format('Y-m-d'), // Day 3
-                'agenda' => 'Day 3: Sidang Pleno II (Pandangan Umum Komisi & Tanggapan Fraksi)',
+                'agenda' => 'Day 3',
             ],
             [
                 'tanggal_event' => now()->addDays(8)->format('Y-m-d'), // Day 4
-                'agenda' => 'Day 4: Sidang Pleno III (Ketukan Palu, Pengesahan Konsideran & Penutupan)',
+                'agenda' => 'Day 4',
             ],
         ]);
 

@@ -16,6 +16,7 @@ Route::middleware('auth:sanctum')->group(function () {
     // Index & Show Event (Bisa diakses Koordinator, Anggota, Staf yang sudah login)
     Route::get('/events', [EventController::class, 'index']);
     Route::get('/events/{id}', [EventController::class, 'show']);
+    Route::get('/events/daftar/{id}', [EventController::class, 'daftarEvent']);
 
     Route::get('/rapat', [RapatController::class, 'index']);
     Route::get('/rapat/{id}', [RapatController::class, 'show']);

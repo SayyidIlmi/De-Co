@@ -13,14 +13,6 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware): void {
     
-    //    Hapus setelah selesai testing, sementara biarkan tidak aktif
-    //    Hapus ini
-    $middleware->validateCsrfTokens(except: [
-            'events', 
-            'events/*',
-        ]);
-    // 
-    
     $middleware->alias([
         'member' => \App\Http\Middleware\CekMiddleware::class,
         'admin' => \App\Http\Middleware\IsAdmin::class,

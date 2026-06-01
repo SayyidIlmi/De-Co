@@ -14,21 +14,30 @@ class EventController extends Controller
      * METHOD FOR KOORDINATOR (Flowchart: Membuat/Update Token Rapat)
      * Hak Akses: Koordinator Only
      */
-    public function index()
+    public function index(request $request)
     {
-        $events = Event::with(['timelines', 'materials', 'documentations'])
-            ->orderBy('created_at', 'asc')
-            ->get();
+        $query = Event::with(['timelines', 'materials', 'documentations']);
+    
+    // 2. Filter pencarian (Jika keyword ada, dia akan menyaring variabel $query)
+    if ($request->has('search') && $request->search != '') {
+        $keyword = $request->search;
+        
+        $query->where(function($q) use ($keyword) {
+            $q->where('judul', 'LIKE', '%' . $keyword . '%')
+              ->orWhere('deskripsi', 'LIKE', '%' . $keyword . '%');
+        });
+    }
+            
+    $semua_event = $query->orderBy('created_at', 'desc')->paginate(6);
+    $semua_event->appends(['search' => $request->search]);
 
-        return response()->json([
-            'status' => 'success',
-            'data' => $events
-        ], 200);
+    return view('event', [
+        'semua_event' => $semua_event
+    ]);
     }
 
     public function show($id)
     {
-
         $event = Event::with(['timelines', 'materials', 'documentations'])->find($id);
 
         if (!$event) {
@@ -38,11 +47,9 @@ class EventController extends Controller
             ], 404);
         }
 
-        return response()->json([
-            'status' => 'success',
-            'message' => 'Detail event berhasil dimuat.',
-            'data' => $event
-        ], 200);
+        return view('detailevent', [
+        'event' => $event
+    ]);
     }
     
     public function store(Request $request)
@@ -67,7 +74,7 @@ class EventController extends Controller
     if ($request->hasFile('banner')) {
         $bannerFile = $request->file('banner');
         // File disimpan ke folder: storage/app/public/banners
-        $bannerPath = $bannerFile->store('banners', 'public');
+        $bannerPath = $bannerFile->store('banner', 'public');
     }
 
     // 4. Menggunakan Database Transaction demi keamanan data inter-tabel
@@ -95,21 +102,13 @@ class EventController extends Controller
         // Jika semua langkah aman, kunci perubahan di database
         DB::commit();
 
-        return response()->json([
-            'status'  => 'success',
-            'message' => 'Event baru beserta berkas banner berhasil diterbitkan!',
-            'data'    => $event->load('timelines')
-        ], 201);
+        return redirect('/event')->with('success', 'Katalog event baru beserta berkas poster berhasil diterbitkan umum!');
 
     } catch (\Exception $e) {
         // Jika ada baris timeline yang gagal masuk, batalkan seluruh rangkaian pembuatan event
         DB::rollBack();
 
-        return response()->json([
-            'status'       => 'error',
-            'message'      => 'Gagal menyimpan data event ke sistem.',
-            'error_detail' => $e->getMessage()
-        ], 500);
+        return redirect()->back()->withInput()->with('error', 'Gagal memproses pembuatan event: ' . $e->getMessage());
     }
 }
 
@@ -202,6 +201,16 @@ class EventController extends Controller
             ]
         ], 201);
     }
+}
+public function showRegistrationForm($id)
+{
+    // 1. Cari data event berdasarkan ID, jika tidak ada lempar error 404
+    $event = Event::findOrFail($id);
+
+    // 2. Buka file view form pendaftaran dan oper objek data $event ke dalamnya
+    return view('pendaftaranevent', [
+        'event' => $event
+    ]);
 }
 public function uploadMaterial(Request $request, $id)
     {

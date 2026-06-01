@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,95 +8,100 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+
 <body>
 
     <header class="hero-section">
         <div class="hero-wave">
             <img src="{{ asset('images/wave-bottom.png') }}" alt="Wave Background">
-        </div> 
+        </div>
 
         <nav class="navbar">
-        <div class="container nav-flex">
-            <a class="logo" style="text-decoration: none;">De-Co</a>
-            <div class="nav-links">
-                <a>Dashboard</a>
-                <a>Manajemen Rapat</a>
-                <a>Katalog Event</a>
-            </div>
-            <div class="auth-buttons">
+            <div class="container nav-flex">
+                <a class="logo" style="text-decoration: none;">De-Co</a>
+                <div class="nav-links">
+                    <a href="/dashboard">Dashboard</a>
+                    <a href="/rapat">Manajemen Rapat</a>
+                    <a href="/event">Katalog Event</a>
+                </div>
+                <div class="auth-buttons">
                     <a href="/login"><button class="btn-login">Login</button></a>
                     <a href="/register"><button class="btn-signup">Sign Up</button></a>
                 </div>
-        </div>
-    </nav>
+            </div>
+        </nav>
 
         <div class="container hero-wrapper">
-    <div class="hero-content">
-        <h1 class="hero-title">
-            <span class="highlight">DE-CO</span> Platform Manajemen Digital Dewan Perwakilan Mahasiswa & Pusat Agenda Kampus
-        </h1>
-        <div class="hero-actions">
-            <button class="btn-join">Join for free</button>
-            <button class="btn-watch">
-                <span class="play-icon"><i class="fas fa-play"></i></span>
-                Watch how it works
-            </button>
-        </div>
-    </div>
-
-    <div class="floating-elements">
-        <div class="f-card card-top">
-            <div class="f-icon bg-blue"><i class="far fa-calendar"></i></div>
-            <div class="f-text">
-                <strong>250k</strong>
-                <span>Assisted Student</span>
-            </div>
-        </div>
-        
-        <div class="f-card card-mid">
-            <div class="f-icon bg-orange"><i class="far fa-envelope"></i></div>
-            <div class="f-text">
-                <strong>Congratulations</strong>
-                <span>Your admission completed</span>
-            </div>
-        </div>
-        
-        <div class="f-card card-bottom">
-            <div class="user-info">
-                <div class="user-avatar"></div>
-                <div class="f-text">
-                    <strong>User Experience Class</strong>
-                    <span>Today at 12.00 PM</span>
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="highlight">DE-CO</span> Platform Manajemen Digital Dewan Perwakilan Mahasiswa & Pusat
+                    Agenda Kampus
+                </h1>
+                <div class="hero-actions">
+                    <button class="btn-join" onclick="window.location.href='/register'">Join for free</button>
+                    <button class="btn-watch">
+                        <span class="play-icon"><i class="fas fa-play"></i></span>
+                        Watch how it works
+                    </button>
                 </div>
             </div>
-            <button class="btn-join-now">Join Now</button>
+
+            <div class="floating-elements">
+                <div class="f-card card-top">
+                    <div class="f-icon bg-blue"><i class="far fa-calendar"></i></div>
+                    <div class="f-text">
+                        <strong>{{ App\Models\User::count() }}</strong>
+                        <span>Assisted Student</span>
+                    </div>
+                </div>
+
+                <div class="f-card card-mid">
+                    <div class="f-icon bg-orange"><i class="far fa-envelope"></i></div>
+                    <div class="f-text">
+                        <strong>Congratulations</strong>
+                        <span>Your admission completed</span>
+                    </div>
+                </div>
+
+                <div class="f-card card-bottom">
+                    <div class="user-info">
+                        <div class="user-avatar"></div>
+                        <div class="f-text">
+                            <strong>Let's get started!</strong>
+                            <span>{{ now()->setTimezone('Asia/Jakarta')->format('g:i:s A') }}</span>
+                        </div>
+                    </div>
+                    <button class="btn-join" onclick="window.location.href='/register'" style="padding: 15px 40px;">Join
+                        Now</button>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
     </header>
 
     <section class="section-padding">
         <div class="container">
-            <p class="section-label">All-In-One Cloud Software</p>
-            <h2 class="section-h2">Satu platform untuk berbagai kebutuhan digital mahasiswa.</h2>
-            
+            <p class="section-label">All-In-One</p>
+            <h2 class="section-h2">Satu platform untuk berbagai kebutuhan fungsionaris dewan perwakilan mahasiswa.</h2>
             <div class="feature-grid">
                 <div class="feature-card">
                     <div class="angular-box"></div>
-                    <h3>Online Billing & Invoicing</h3>
-                    <p>Kelola administrasi keuangan organisasi dengan lebih transparan dan otomatis.</p>
+                    <h3>Legislative Meeting Management</h3>
+                    <p>Penyusunan jadwal rapat komisi, pencatatan penanggung jawab, hingga dokumentasi hasil notulensi
+                        terpusat.</p>
                 </div>
-                
+
                 <div class="feature-card">
                     <div class="angular-box"></div>
-                    <h3>Scheduling & Attendance</h3>
-                    <p>Sistem penjadwalan rapat dan absensi digital yang terintegrasi langsung.</p>
+                    <h3>Integrated Event Catalog</h3>
+                    <p>Publikasi agenda kerja DPM, manajemen timeline kegiatan interaktif, beserta unggahan materi
+                        dokumen pendukung.</p>
                 </div>
-                
+
                 <div class="feature-card">
                     <div class="angular-box"></div>
-                    <h3>Customer Tracking</h3>
-                    <p>Pantau keterlibatan mahasiswa dalam setiap agenda dan program kerja.</p>
+                    <h3>Smart Registration System</h3>
+                    <p>Fasilitas daftar instan untuk internal staff fungsionaris DPM dan form biodata ketat
+                        terverifikasi NIM bagi masyarakat umum.</p>
                 </div>
             </div>
         </div>
@@ -105,8 +111,12 @@
         <div class="content-split">
             <div class="content-text">
                 <h2 class="section-h2">What is <span style="color: var(--primary-teal);">De-Co?</span></h2>
-                <p>De-Co adalah solusi integrasi digital yang dirancang khusus untuk mempermudah tata kelola Dewan Perwakilan Mahasiswa dalam mengelola agenda, rapat, dan informasi publik.</p>
-                <a href="#" style="color: var(--primary-teal); font-weight: 600; text-decoration: underline;">Learn more</a>
+                <p style="line-height: 1.6; color: #475569;">De-Co (Dewan Connect) adalah platform integrasi digital
+                    yang dirancang untuk memperkuat tata kelola Dewan Perwakilan Mahasiswa. Kami menghubungkan efisiensi
+                    manajemen legislatif internal dengan keterbukaan informasi publik bagi seluruh mahasiswa.</p> <a
+                    href="/event"
+                    style="color: var(--primary-teal); font-weight: 600; text-decoration: underline;">Jelajahi Katalog
+                    Event</a>
             </div>
             <div class="content-img">
                 <div class="angular-box" style="height: 300px;"></div>
@@ -115,27 +125,30 @@
     </section>
 
     <section class="container section-padding">
-        <h2 class="section-h2" style="text-align: left;">Latest News and Resources</h2>
+        <h2 class="section-h2" style="text-align: left;">Sistem Administrasi & Informasi</h2>
         <div class="news-container">
             <div class="news-main">
                 <div class="angular-box" style="height: 350px; margin-bottom: 20px;"></div>
-                <h3>Cara Mengoptimalkan Manajemen Rapat Organisasi di Era Digital</h3>
-                <p>Pelajari langkah-langkah praktis dalam mengelola administrasi legislatif agar lebih efisien.</p>
-                <a href="#"style="color: var(--primary-teal); font-weight: 600; text-decoration: underline;" >Read more</a>
+                <h3>Optimalisasi Transparansi Notulensi Rakat Paripurna DPM</h3>
+                <p>Kini fungsionaris komisi dapat menyinkronkan daftar hadir peserta rapat secara transparan menembus
+                    tabel relasi server-side Laragon.</p> <a href="/rapat"
+                    style="color: var(--primary-teal); font-weight: 600; text-decoration: underline;">Jelajahi Katalog
+                    Rapat</a>
             </div>
             <div class="news-list">
                 <div class="news-item">
                     <div class="angular-box" style="width: 120px; height: 80px;"></div>
                     <div>
-                        <h4 style="font-size: 14px;">Fitur Baru: Integrasi Kalender Akademik</h4>
-                        <p style="font-size: 12px; opacity: 0.7;">Update terbaru untuk memudahkan penjadwalan.</p>
+                        <h4 style="font-size: 14px;">Fitur Baru: Integrasi Timelines</h4>
+                        <p style="font-size: 12px; opacity: 0.7;">Update terbaru untuk memudahkan penjadwalan kegiatan.
+                        </p>
                     </div>
                 </div>
                 <div class="news-item">
                     <div class="angular-box" style="width: 120px; height: 80px;"></div>
                     <div>
-                        <h4 style="font-size: 14px;">Laporan Transparansi Dana DPM 2026</h4>
-                        <p style="font-size: 12px; opacity: 0.7;">Akses publik untuk keterbukaan informasi.</p>
+                        <h4 style="font-size: 14px;">Pembaruan Instan Galeri Media</h4>
+                        <p style="font-size: 12px; opacity: 0.7;">Koordinator kini dapat mengunggah file dokumentasi.</p>
                     </div>
                 </div>
             </div>
@@ -168,4 +181,5 @@
     </footer>
 
 </body>
+
 </html>
