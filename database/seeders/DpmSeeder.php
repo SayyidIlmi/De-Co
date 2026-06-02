@@ -104,10 +104,10 @@ class DpmSeeder extends Seeder
 
         $event1->documentations()->createMany([
             [
-                'image_path' => 'documentations/rapat_komisi_a_1.jpg', // Simulasi letak foto di storage/app/public/documentations/
+                'image_path' => 'event_documentations/rapat_komisi_a_1.jpg', // Simulasi letak foto di storage/app/public/documentations/
             ],
             [
-                'image_path' => 'documentations/rapat_komisi_a_2.jpg',
+                'image_path' => 'event_documentations/rapat_komisi_a_2.jpg',
             ],
         ]);
 
@@ -155,10 +155,10 @@ class DpmSeeder extends Seeder
 
         $event2->documentations()->createMany([
             [
-                'image_path' => 'documentations/paripurna_pembukaan.jpg',
+                'image_path' => 'event_documentations/paripurna_pembukaan.jpg',
             ],
             [
-                'image_path' => 'documentations/paripurna_ketok_palu.jpg',
+                'image_path' => 'event_documentations/paripurna_ketok_palu.jpg',
             ],
         ]);
 

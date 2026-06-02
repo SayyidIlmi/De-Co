@@ -42,7 +42,9 @@
                     <button class="btn-primary" onclick="window.location.href='{{ url('/rapat') }}'">Lihat jadwal rapat</button>
                 @endif
             </div>
-            <div class="hero-placeholder"></div>
+            <div class="hero-placeholder">
+                <img src="{{ asset('images/forum.png') }}" alt="Hero Image" style="width: 100%; height: 100%; object-fit: cover; object-position: center;border-radius: 20px;">
+            </div>
         </section>
 
         <section class="section-group">
@@ -72,7 +74,7 @@
                         <h3>{{$item->judul}}</h3>
                         <div class="author">
                             <div class="author-img"></div>
-                            <span>Lina</span>
+                            <span>{{$item->penanggung_jawab}}</span>
                         </div>
                         <p>{{$item->deskripsi}}</p>
                         <div class="card-footer">

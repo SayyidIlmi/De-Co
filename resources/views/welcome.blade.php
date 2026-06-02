@@ -84,21 +84,27 @@
             <h2 class="section-h2">Satu platform untuk berbagai kebutuhan fungsionaris dewan perwakilan mahasiswa.</h2>
             <div class="feature-grid">
                 <div class="feature-card">
-                    <div class="angular-box"></div>
+                    <div>
+                        <img class="card-img" src="{{ asset('images/Digitalize.jpg') }}" style="width: 100%;height: 200px;object-fit: cover;object-position: center;">
+                    </div>
                     <h3>Legislative Meeting Management</h3>
                     <p>Penyusunan jadwal rapat komisi, pencatatan penanggung jawab, hingga dokumentasi hasil notulensi
                         terpusat.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="angular-box"></div>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div>
+                        <img class="card-img" src="{{ asset('images/Calender.jpg') }}" style="width: 100%;height: 200px;object-fit: cover;object-position: center;">
+                    </div>
                     <h3>Integrated Event Catalog</h3>
                     <p>Publikasi agenda kerja DPM, manajemen timeline kegiatan interaktif, beserta unggahan materi
                         dokumen pendukung.</p>
-                </div>
-
+                    </div>
+                    
                 <div class="feature-card">
-                    <div class="angular-box"></div>
+                    <div>
+                        <img class="card-img" src="{{ asset('images/Form.jpg') }}" style="width: 100%;height: 200px;object-fit: cover;object-position: center;">
+                    </div>
                     <h3>Smart Registration System</h3>
                     <p>Fasilitas daftar instan untuk internal staff fungsionaris DPM dan form biodata ketat
                         terverifikasi NIM bagi masyarakat umum.</p>
@@ -118,8 +124,10 @@
                     style="color: var(--primary-teal); font-weight: 600; text-decoration: underline;">Jelajahi Katalog
                     Event</a>
             </div>
-            <div class="content-img">
-                <div class="angular-box" style="height: 300px;"></div>
+            <div>
+                <div style="height: 300px;">
+                    <img class="card-img" src="{{ asset('images/Secure.jpg') }}" alt="What is De-Co?" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
+                </div>
             </div>
         </div>
     </section>
@@ -128,7 +136,9 @@
         <h2 class="section-h2" style="text-align: left;">Sistem Administrasi & Informasi</h2>
         <div class="news-container">
             <div class="news-main">
-                <div class="angular-box" style="height: 350px; margin-bottom: 20px;"></div>
+                <div style="height: 350px; margin-bottom: 20px;">
+                    <img class="card-img" src="{{ asset('images/Stand.jpg') }}" alt="Meeting Management" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
+                </div>
                 <h3>Optimalisasi Transparansi Notulensi Rakat Paripurna DPM</h3>
                 <p>Kini fungsionaris komisi dapat menyinkronkan daftar hadir peserta rapat secara transparan menembus
                     tabel relasi server-side Laragon.</p> <a href="/rapat"
@@ -137,7 +147,9 @@
             </div>
             <div class="news-list">
                 <div class="news-item">
-                    <div class="angular-box" style="width: 120px; height: 80px;"></div>
+                    <div style="width: 120px; height: 80px;">
+                        <img class="card-img" src="{{ asset('images/Calender.jpg') }}" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
+                    </div>
                     <div>
                         <h4 style="font-size: 14px;">Fitur Baru: Integrasi Timelines</h4>
                         <p style="font-size: 12px; opacity: 0.7;">Update terbaru untuk memudahkan penjadwalan kegiatan.
@@ -145,7 +157,9 @@
                     </div>
                 </div>
                 <div class="news-item">
-                    <div class="angular-box" style="width: 120px; height: 80px;"></div>
+                    <div style="width: 120px; height: 80px;">
+                        <img class="card-img" src="{{ asset('images/Form.jpg') }}" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
+                    </div>
                     <div>
                         <h4 style="font-size: 14px;">Pembaruan Instan Galeri Media</h4>
                         <p style="font-size: 12px; opacity: 0.7;">Koordinator kini dapat mengunggah file dokumentasi.</p>
