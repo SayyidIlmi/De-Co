@@ -118,6 +118,10 @@
                                     <li>Belum ada anggota yang diundang ke rapat ini.</li>
                                 @endforelse
                             </ul>
+                            <div class="detail-block">
+                                <label>Notulensi</label>
+                                <p>{{ $item->notulensi }}</p>
+                            </div>
                         </div>
                     </div>
 

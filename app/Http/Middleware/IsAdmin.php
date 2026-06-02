@@ -8,24 +8,24 @@ use Symfony\Component\HttpFoundation\Response;
 
 class IsAdmin
 {
-    public function handle($request, Closure $next, string $role): Response
+    public function handle($request, Closure $next, ...$roles): Response
     {
-        // 1. Cek apakah user sudah login?
-        // 2. Cek apakah properti role milik user yang sedang login sama dengan role yang diminta route?
-        if (!Auth::check() || Auth::user()->role !== $role) {
-            
-            // Jika request meminta JSON (seperti dari Postman), kembalikan respon JSON yang rapi
-            if ($request->wantsJson() || $request->expectCustomJson()) {
-                return response()->json([
-                    'status' => 'error',
-                    'message' => 'Forbidden - Khusus untuk role ' . $role
-                ], 403);
-            }
+        if (!auth()->check()) {
+        return redirect()->route('login');
+    }
 
-            // Jika diakses dari browser biasa, lempar ke halaman error 403
-            abort(403, 'Forbidden - ' . ucfirst($role) . ' Only');
-        }
-
+    // 2. Cek apakah role user saat ini ada di dalam parameter middleware (misal: koordinator)
+    if (in_array(auth()->user()->role, $roles)) {
         return $next($request);
+    }
+
+    // 3. JIKA GAGAL LOLOS ROLE (Skenario pencegatan):
+    // 💡 Ganti dengan fungsi expectsJson() bawaan Laravel yang benar
+    if ($request->expectsJson()) {
+        return response()->json(['message' => 'Akses ditolak, Anda bukan Koordinator!'], 403);
+    }
+
+    // Jika diakses via browser biasa, lempar balik ke dashboard dengan pesan peringatan
+    return redirect()->route('dashboard')->with('error', 'Akses ditolak, Anda bukan Koordinator!');
     }
 }

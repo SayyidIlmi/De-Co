@@ -9,8 +9,7 @@ class Rapat extends Model
 {
     use HasFactory;
 
-    // Nama tabel di database kamu (jika tidak jamak)
-    protected $table = 'rapat'; 
+    protected $table = 'rapat';
 
     protected $fillable = [
         'judul',
@@ -24,7 +23,7 @@ class Rapat extends Model
     ];
 
     public function undanganAnggota()
-{
-    return $this->belongsToMany(User::class, 'rapat_fungsionaris', 'rapat_id', 'user_id');
-}
+    {
+        return $this->belongsToMany(User::class, 'rapat_fungsionaris', 'rapat_id', 'user_id');
+    }
 }
