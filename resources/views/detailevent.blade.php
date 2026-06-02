@@ -152,9 +152,10 @@
                     @forelse($event->documentations as $photo)
                         <div class="gallery-item"
                             onclick="window.open('{{ asset('storage/' . $photo->image_path) }}', '_blank')"
-                            style="cursor: pointer; position: relative; min-height: 100px; border-radius: 6px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                            style="cursor: pointer; height: 100px; border-radius: 6px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                            <!-- Gambar: Diubah menjadi block element dengan width & height 100% mutlak -->
                             <img src="{{ asset('storage/' . $photo->image_path) }}" alt="Dokumentasi Event"
-                                style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
+                                style="width: 100%; height: 100%; object-fit: cover; display: block;">
                         </div>
                     @empty
                         {{-- Kotak Cadangan Jika Belum Ada Foto Dokumentasi --}}
